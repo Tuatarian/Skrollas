@@ -1,0 +1,159 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Scenes/Plr.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/LevelEnd.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/rever.tres" type="TileSet" id=3]
+[ext_resource path="res://Scenes/base.tres" type="TileSet" id=4]
+[ext_resource path="res://Scenes/ScrollLevel.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/ReverseMap.gd" type="Script" id=6]
+[ext_resource path="res://Sounds/Whoosh Digital 08.wav" type="AudioStream" id=11]
+[ext_resource path="res://EndLevelRects/template.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/LevelEnd.png" type="Texture" id=15]
+[ext_resource path="res://Sprites/light.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Stacked pixel.ttf" type="DynamicFontData" id=17]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 48, 48 )
+
+[sub_resource type="OccluderPolygon2D" id=2]
+polygon = PoolVector2Array( -48, -48, 48, -48, 48, 48, -48, 48 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 128
+font_data = ExtResource( 17 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 128
+font_data = ExtResource( 17 )
+
+[node name="Lvl7" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="Backdrop" type="Sprite" parent="."]
+modulate = Color( 1.1, 1.1, 1.1, 1 )
+position = Vector2( 960, 544 )
+scale = Vector2( 1, 1.0037 )
+texture = ExtResource( 13 )
+
+[node name="Light2D" type="Light2D" parent="Backdrop"]
+position = Vector2( -24, -964 )
+scale = Vector2( 1, 0.996314 )
+texture = ExtResource( 16 )
+texture_scale = 4.0
+shadow_enabled = true
+
+[node name="Light2D2" type="Light2D" parent="Backdrop"]
+position = Vector2( 616, -765.169 )
+scale = Vector2( 1, 0.996314 )
+texture = ExtResource( 16 )
+texture_scale = 4.0
+shadow_enabled = true
+
+[node name="Plr" parent="." instance=ExtResource( 1 )]
+position = Vector2( 352, 256 )
+
+[node name="MovingLevel" type="Node2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="ReverseMap" type="TileMap" parent="MovingLevel"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( -1114093, 0, 0, -1114092, 1, 0, -1114091, 1, 0, -1114090, 2, 0, -1048557, 3, 0, -1048556, 4, 0, -1048555, 4, 0, -1048554, 5, 0, -983021, 3, 0, -983020, 4, 0, -983019, 4, 0, -983018, 5, 0, -917485, 3, 0, -917484, 4, 0, -917483, 4, 0, -917482, 5, 0, -851949, 3, 0, -851948, 4, 0, -851947, 4, 0, -851946, 5, 0, -786413, 3, 0, -786412, 4, 0, -786411, 4, 0, -786410, 5, 0, -720877, 3, 0, -720876, 4, 0, -720875, 4, 0, -720874, 5, 0, -655341, 3, 0, -655340, 4, 0, -655339, 4, 0, -655338, 5, 0, -589805, 3, 0, -589804, 4, 0, -589803, 4, 0, -589802, 5, 0, -524269, 3, 0, -524268, 4, 0, -524267, 4, 0, -524266, 5, 0, -458733, 3, 0, -458732, 4, 0, -458731, 4, 0, -458730, 5, 0, -393197, 3, 0, -393196, 4, 0, -393195, 4, 0, -393194, 5, 0, -327661, 3, 0, -327660, 4, 0, -327659, 4, 0, -327658, 5, 0, -262125, 3, 0, -262124, 4, 0, -262123, 4, 0, -262122, 5, 0, -196589, 3, 0, -196588, 4, 0, -196587, 4, 0, -196586, 5, 0, -131053, 3, 0, -131052, 4, 0, -131051, 4, 0, -131050, 5, 0, -65517, 3, 0, -65516, 4, 0, -65515, 4, 0, -65514, 5, 0, 19, 3, 0, 20, 4, 0, 21, 4, 0, 22, 5, 0, 65555, 3, 0, 65556, 4, 0, 65557, 4, 0, 65558, 5, 0, 131091, 3, 0, 131092, 4, 0, 131093, 4, 0, 131094, 5, 0, 196627, 3, 0, 196628, 4, 0, 196629, 4, 0, 196630, 5, 0, 262163, 3, 0, 262164, 4, 0, 262165, 4, 0, 262166, 5, 0, 327690, 0, 0, 327691, 1, 0, 327692, 2, 0, 327699, 3, 0, 327700, 4, 0, 327701, 4, 0, 327702, 5, 0, 393226, 3, 0, 393227, 4, 0, 393228, 4, 0, 393229, 2, 0, 393235, 3, 0, 393236, 4, 0, 393237, 4, 0, 393238, 5, 0, 458762, 3, 0, 458763, 4, 0, 458764, 4, 0, 458765, 5, 0, 458771, 3, 0, 458772, 4, 0, 458773, 4, 0, 458774, 5, 0, 524298, 3, 0, 524299, 4, 0, 524300, 4, 0, 524301, 5, 0, 524307, 6, 0, 524308, 4, 0, 524309, 4, 0, 524310, 8, 0, 589827, 0, 0, 589828, 1, 0, 589829, 1, 0, 589830, 1, 0, 589831, 2, 0, 589834, 3, 0, 589835, 4, 0, 589836, 4, 0, 589837, 4, 0, 589838, 2, 0, 589844, 6, 0, 589845, 8, 0, 655363, 3, 0, 655364, 4, 0, 655365, 4, 0, 655366, 4, 0, 655367, 5, 0, 655370, 3, 0, 655371, 4, 0, 655372, 4, 0, 655373, 4, 0, 655374, 5, 0, 720899, 3, 0, 720900, 4, 0, 720901, 4, 0, 720902, 4, 0, 720903, 8, 0, 720906, 6, 0, 720907, 7, 0, 720908, 7, 0, 720909, 7, 0, 720910, 8, 0, 786435, 6, 0, 786436, 7, 0, 786437, 7, 0, 786438, 8, 0, 786449, 0, 0, 786450, 1, 0, 786451, 1, 0, 786452, 1, 0, 786453, 1, 0, 786454, 1, 0, 786455, 1, 0, 786456, 1, 0, 786457, 2, 0, 786459, 0, 0, 786460, 2, 0, 851985, 6, 0, 851986, 7, 0, 851987, 7, 0, 851988, 7, 0, 851989, 4, 0, 851990, 4, 0, 851991, 4, 0, 851992, 4, 0, 851993, 5, 0, 851995, 6, 0, 851996, 8, 0, 917525, 6, 0, 917526, 7, 0, 917527, 7, 0, 917528, 7, 0, 917529, 8, 0 )
+script = ExtResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="MovingLevel"]
+scale = Vector2( 4, 4 )
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 16, 16 )
+format = 1
+
+[node name="Tween" type="Tween" parent="MovingLevel"]
+
+[node name="LevelEnd" type="Area2D" parent="MovingLevel"]
+position = Vector2( 1792, 720 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MovingLevel/LevelEnd"]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="MovingLevel/LevelEnd"]
+scale = Vector2( 6, 6 )
+texture = ExtResource( 15 )
+
+[node name="WinTimer" type="Timer" parent="MovingLevel/LevelEnd"]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="MovingLevel/LevelEnd"]
+occluder = SubResource( 2 )
+
+[node name="Scroll" type="AudioStreamPlayer" parent="MovingLevel"]
+stream = ExtResource( 11 )
+volume_db = 2.0
+
+[node name="eQuote" type="Sprite" parent="."]
+position = Vector2( 1920, 0 )
+texture = ExtResource( 13 )
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="eQuote"]
+self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+anchor_left = -0.0208333
+anchor_top = -0.0925926
+anchor_right = -0.0125
+anchor_bottom = 0.101852
+margin_left = 440.0
+margin_top = 324.0
+margin_right = 1480.0
+margin_bottom = 954.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "I've run out of things to put in this box, and its only level 6!
+
+					   -T
+	"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tween" type="Tween" parent="eQuote"]
+
+[node name="QuoteTimer" type="Timer" parent="eQuote"]
+one_shot = true
+
+[node name="sQuote" type="Sprite" parent="."]
+visible = false
+texture = ExtResource( 13 )
+centered = false
+
+[node name="RichTextLabel" type="RichTextLabel" parent="sQuote"]
+self_modulate = Color( 0.87451, 0.87451, 0.87451, 1 )
+anchor_left = -0.0208333
+anchor_top = -0.0925926
+anchor_right = -0.0125
+anchor_bottom = 0.101852
+margin_left = 440.0
+margin_top = 324.0
+margin_right = 1480.0
+margin_bottom = 954.0
+custom_fonts/normal_font = SubResource( 4 )
+text = "please stop winning, it is very embarassing
+
+					   -T
+	"
+fit_content_height = true
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tween" type="Tween" parent="sQuote"]
+
+[node name="QuoteTimer" type="Timer" parent="sQuote"]
+one_shot = true
+[connection signal="body_entered" from="MovingLevel/LevelEnd" to="." method="_on_LevelEnd_body_entered"]
+[connection signal="timeout" from="MovingLevel/LevelEnd/WinTimer" to="." method="_on_WinTimer_timeout"]
+[connection signal="timeout" from="eQuote/QuoteTimer" to="." method="_on_QuoteTimer_timeout"]

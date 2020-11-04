@@ -1,0 +1,31 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sounds/lven.wav" type="AudioStream" id=1]
+[ext_resource path="res://Sounds/HC Frick watching the Johnstown flood.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/HcFrick.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Globals.gd" type="Script" id=4]
+[ext_resource path="res://Sounds/wind.wav" type="AudioStream" id=5]
+
+[node name="Globals" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="HcFrick" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -8.078
+script = ExtResource( 3 )
+
+[node name="Wind" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+volume_db = -8.078
+autoplay = true
+script = ExtResource( 3 )
+
+[node name="Win" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+volume_db = -10.097
+script = ExtResource( 3 )
+[connection signal="finished" from="HcFrick" to="HcFrick" method="_on_HcFrick_finished"]
+[connection signal="finished" from="Wind" to="Wind" method="_on_HcFrick_finished"]
+[connection signal="finished" from="Wind" to="Wind" method="_on_Wind_finished"]
+[connection signal="finished" from="Win" to="Win" method="_on_Win_finished"]
+[connection signal="finished" from="Win" to="HcFrick" method="_on_HcFrick_finished"]
